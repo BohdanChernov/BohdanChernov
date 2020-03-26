@@ -11,6 +11,6 @@ public class MyRepo implements Repository{
         list.add("member1");
         list.add("member2");
         list.add("member3");
-        return null;
+        return list;
     }
 }
