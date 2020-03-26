@@ -1,5 +1,6 @@
 <%@ page import="java.util.List" %>
-<%@ page import="java.util.ArrayList" %><%--
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="models.Member" %><%--
   Created by IntelliJ IDEA.
   User: PCUser
   Date: 03/26/2020
@@ -8,27 +9,38 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%--<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core"%>--%>
 <html>
 <head>
     <title>Title</title>
 </head>
 <body>
+
 <h3>Show form:</h3>
 
 <%
-    String name = request.getParameter("userName");
-    String last = request.getParameter("lastName");
-    ArrayList list = (ArrayList) request.getAttribute("listOfNames");
+    ArrayList<Member> members = (ArrayList) request.getAttribute("listOfNames");
+    String name = (String)request.getAttribute("userName");
+    String last = (String)request.getAttribute("lastName");
+
 %>
 
-<c:forEach items="${list}" var="us">
-    <br>${us}
-</c:forEach>
 
+Your name: <%=name%>
 <br>
-Name: <%=name%>
+Your last name: <%=last%>
+
+<p>Go <a href="/">back</a> </p>
+
+<p><h3>List of registered members:</h3></p>
 <br>
-Last name: <%=last%>
+<%for (Member m : members) {%>
+<br><%=m.getName()%>
+<%=m.getLastName()%>
+<br>
+
+<%}%>
+
 
 
 </body>
