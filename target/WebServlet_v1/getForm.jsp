@@ -11,26 +11,30 @@
 <html>
 <head>
     <title>Title</title>
+    <style>
+        <%@ include file="css/style.css"%>
+    </style>
 </head>
 <body>
+
 <h3>Registration:</h3>
 
-<form action="" method="post">
-    Name: <input type="text" name="userName"/>
-    <br>
-    LastName: <input type="text" name="lastName"/>
-    <br>
-    <input type="submit" value="Okay"/>
-</form>
-
+<div class="login-form-1">
+    <form action="registration" method="post">
+        Name: <input type="text" name="userName"/>
+        <br>
+        LastName: <input type="text" name="lastName"/>
+        <br>
+        <div class="login-group"><input type="submit" value="Okay"/></div>
+    </form>
+</div>
 
 <h3>Show form:</h3>
 
 <%
+    String name = (String) request.getAttribute("userName");
+    String last = (String) request.getAttribute("lastName");
     ArrayList<Member> members = (ArrayList) request.getAttribute("listOfNames");
-    String name = (String)request.getAttribute("userName");
-    String last = (String)request.getAttribute("lastName");
-
 %>
 
 
@@ -38,17 +42,14 @@ Your name: <%=name%>
 <br>
 Your last name: <%=last%>
 
-<p>Go <a href="/">back</a> </p>
-
-<p><h3>List of registered members:</h3></p>
+<p>
+<h3>List of registered members:</h3></p>
 <br>
 <%for (Member m : members) {%>
-<br><%=m.getName()%>
+<br>
+<%=m.getName()%>
 <%=m.getLastName()%>
 <br>
-
 <%}%>
-
-
 </body>
 </html>

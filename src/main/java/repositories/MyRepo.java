@@ -8,13 +8,13 @@ import java.util.List;
 public class MyRepo implements Repository {
     private static MyRepo myRepo = new MyRepo();
 
-    private List<Member> list = new ArrayList<>();
+    private static ArrayList<Member> list = new ArrayList<>();
 
     private MyRepo() {
     }
 
     @Override
-    public List getData() {
+    public ArrayList getData() {
         return this.list;
     }
 
