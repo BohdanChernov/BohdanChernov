@@ -1,8 +1,15 @@
 package repositories;
 
+import models.Member;
+
 import java.util.ArrayList;
-import java.util.List;
 
 public interface Repository {
+
     ArrayList getData();
+
+    void addMember(Member member);
+
+    boolean isExist(String email, String password);
+
 }
