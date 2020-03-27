@@ -1,12 +1,14 @@
 package models;
 
 public class Member {
+    private int id;
     private String name;
     private String lastName;
     private String email;
     private String password;
 
-    public Member(String name, String lastName, String email, String password) {
+    public Member(int id, String name, String lastName, String email, String password) {
+        this.id = id;
         this.name = name;
         this.lastName = lastName;
         this.email = email;
@@ -43,5 +45,13 @@ public class Member {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

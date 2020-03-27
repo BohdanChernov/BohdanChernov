@@ -1,7 +1,7 @@
 package servlets;
 
 import models.Member;
-import repositories.MyRepository;
+import repositories.DAO;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -17,8 +17,8 @@ public class ListOfMemServ extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        MyRepository myRepository = new MyRepository();
-        ArrayList<Member> list = myRepository.getData();
+        DAO DAO = new DAO();
+        ArrayList<Member> list = DAO.getData();
 
         req.setAttribute("list", list);
 

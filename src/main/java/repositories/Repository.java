@@ -8,7 +8,7 @@ public interface Repository {
 
     ArrayList getData();
 
-    void addMember(Member member);
+    void addMember(String name, String last, String email, String pass);
 
     boolean isExist(String email, String password);
 

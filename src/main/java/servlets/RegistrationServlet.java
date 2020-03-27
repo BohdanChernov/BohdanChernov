@@ -1,7 +1,7 @@
 package servlets;
 
 import models.Member;
-import repositories.MyRepository;
+import repositories.DAO;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 
 @WebServlet("/registration")
 public class RegistrationServlet extends HttpServlet {
@@ -27,15 +28,11 @@ public class RegistrationServlet extends HttpServlet {
         String email = req.getParameter("email");
         String password = req.getParameter("password");
 
-        MyRepository myRepository = new MyRepository();
-        String passCrypt = myRepository.getCrypt(password);
-        System.out.println(passCrypt);
 
-        Member member = new Member(name, lastName, email, passCrypt);
+        DAO DAO = new DAO();
 
-
-        myRepository.addMember(member);
-
+        String passCrypt = DAO.getCrypt(password);
+        DAO.addMember(name, lastName, email, passCrypt);
         resp.sendRedirect("/login");
 
     }

@@ -1,7 +1,7 @@
 package servlets;
 
 import models.Member;
-import repositories.MyRepository;
+import repositories.DAO;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -24,16 +24,21 @@ public class LoginServlet extends HttpServlet {
         String email = req.getParameter("email");
         String password = req.getParameter("password");
 
-        MyRepository myRepository = new MyRepository();
-        ArrayList<Member> list = myRepository.getData();
+        DAO DAO = new DAO();
+        ArrayList<Member> list = DAO.getData();
 
-        if (myRepository.isExist(email, password)) {
+        if (DAO.isExist(email, password)) {
+            System.out.println("YOU ARE LOGGED");
             HttpSession session = req.getSession();
             session.setAttribute("user", email);
             RequestDispatcher dispatcher = req.getServletContext().getRequestDispatcher("/");
             dispatcher.forward(req, resp);
+        } else {
+            System.out.println("LOGGIN IS UNSUCCESSFUL");
+
+            resp.sendRedirect("/login");
         }
 
-        resp.sendRedirect("/login");
+
     }
 }
