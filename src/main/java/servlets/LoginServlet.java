@@ -28,13 +28,12 @@ public class LoginServlet extends HttpServlet {
         ArrayList<Member> list = myRepository.getData();
 
         if (myRepository.isExist(email, password)) {
-            System.out.println("USER EXISTS");
             HttpSession session = req.getSession();
             session.setAttribute("user", email);
-            RequestDispatcher dispatcher = req.getServletContext().getRequestDispatcher("/firstPage");
+            RequestDispatcher dispatcher = req.getServletContext().getRequestDispatcher("/");
             dispatcher.forward(req, resp);
         }
 
-        resp.sendRedirect("/");
+        resp.sendRedirect("/login");
     }
 }

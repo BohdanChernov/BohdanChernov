@@ -15,8 +15,7 @@ public class FirstPageServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Cookie cookie[] = req.getCookies();
-
-        Cookie cookieNew = null;
+        Cookie cookieNew = new Cookie("colorOfPage", "black");
 
         for (Cookie cookieOne : cookie) {
             if (cookieOne.getName().equals("colorOfPage")) {
@@ -30,7 +29,6 @@ public class FirstPageServlet extends HttpServlet {
         } catch (Exception e) {
         }
 
-
         RequestDispatcher dispatcher = req.getServletContext().getRequestDispatcher("/firstPage.jsp");
         dispatcher.forward(req, resp);
     }
@@ -38,7 +36,9 @@ public class FirstPageServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String str = req.getParameter("colorOfPage");
-        System.out.println(str);
+
+        if (str == null)
+            str = "black";
 
         Cookie cookie = new Cookie("colorOfPage", str);
         resp.addCookie(cookie);
