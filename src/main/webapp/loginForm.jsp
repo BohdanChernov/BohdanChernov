@@ -21,13 +21,14 @@
     <h3>Login:</h3>
 
     <form action="" method="post">
-        E-mail: <input type="text" name="email"/>
+        <label>E-mail: <input type="text" name="email"/></label>
         <br>
         <br>
-        Password: <input type="text" name="password"/>
+        <label>Password: <input type="text" name="password"/></label>
         <br>
         <br>
-        <input type="submit" value="Submit login"/>
+        <label><input type="submit" value="Submit login"/></label>
+        <br>
     </form>
 
     <p>To main page <a href="/">Click here to the main page.</a></p>

@@ -21,22 +21,22 @@
     <h3>Registration:</h3>
 
     <form action="" method="post">
-        Name: <input type="text" name="userName"/>
+        <label>Name: <input type="text" name="userName"/></label>
         <br>
         <br>
-        Last Name: <input type="text" name="lastName"/>
+        <label>Last Name: <input type="text" name="lastName"/></label>
         <br>
         <br>
-        E-mail: <input type="text" name="email"/>
+        <label>E-mail: <input type="text" name="email"/></label>
         <br>
         <br>
-        Password: <input type="text" name="password"/>
+        <label>Password: <input type="text" name="password"/></label>
         <br>
         <br>
-        <input type="submit" value="Submit registration"/>
+        <label><input type="submit" value="Submit registration"/></label>
     </form>
 
-
+    <br>
     <p>To main page <a href="/">Click here to the main page.</a></p>
 
     <p>To login. <a href="/login">"Click here"</a></p>

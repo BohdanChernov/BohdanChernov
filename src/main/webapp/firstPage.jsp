@@ -29,18 +29,19 @@
     <br>
 
     <form method="post" action="">
-        <div>
-            <select name="colorOfPage">
-                <option value="black">Black</option>
-                <option value="white">White</option>
-                <option value="red">Red</option>
-                <option value="green">Green</option>
-            </select>
-        </div>
 
-        <input type="submit" value="Submit">
+        <label><select name="colorOfPage">
+            <option value="black">Black</option>
+            <option value="white">White</option>
+            <option value="red">Red</option>
+            <option value="green">Green</option>
+        </select></label>
+
+
+        <label><input type="submit" value="Submit"></label>
     </form>
 
+    <br>
     <p>To main page <a href="/">Click here to the main page.</a></p>
 </div>
 

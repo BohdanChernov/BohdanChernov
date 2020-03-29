@@ -3,8 +3,10 @@ package repositories;
 import at.favre.lib.crypto.bcrypt.BCrypt;
 import models.Member;
 
+import java.io.FileInputStream;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Properties;
 
 public class DAO implements Repository {
     private static Statement statement;
@@ -60,7 +62,7 @@ public class DAO implements Repository {
         sb.append("'" + email1 + "'" + ", ");
         sb.append("'" + pass1 + "'" + ");");
 
-        System.out.println();
+        System.out.println( );
         System.out.println(sb);
 
         try {
@@ -111,6 +113,8 @@ public class DAO implements Repository {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+
+
         String dbUser = "postgres";
         String pass = "123";
         String url = "jdbc:postgresql://localhost:5432/users";

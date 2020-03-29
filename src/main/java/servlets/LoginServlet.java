@@ -36,7 +36,10 @@ public class LoginServlet extends HttpServlet {
         } else {
             System.out.println("LOGGIN IS UNSUCCESSFUL");
 
-            resp.sendRedirect("/login");
+//            resp.sendRedirect("/login");
+
+            RequestDispatcher dispatcher = req.getServletContext().getRequestDispatcher("/loginForm.jsp");
+            dispatcher.forward(req, resp);
         }
 
 

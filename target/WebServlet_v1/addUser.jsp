@@ -18,22 +18,28 @@
 
 <div id="mainContainer">
 
-    <h3>Login:</h3>
+    <h3>Registration FORM2:</h3>
 
     <form action="" method="post">
+        <label>Name: <input type="text" name="userName"/></label>
+        <br>
+        <br>
+        <label>Last Name: <input type="text" name="lastName"/></label>
+        <br>
+        <br>
         <label>E-mail: <input type="text" name="email"/></label>
         <br>
         <br>
         <label>Password: <input type="text" name="password"/></label>
         <br>
         <br>
-        <label><input type="submit" value="Submit login"/></label>
-        <br>
+        <label><input type="submit" value="Submit registration"/></label>
     </form>
 
-    <p>To main page <a href="/">Click here to the main page.</a></p>
+    <br>
+    <label><p>To main page <a href="/">Click here to the main page.</a></p></label>
 
-    <p>To make registration. <a href="/registration">"Click here"</a></p>
+    <label><p>To login. <a href="/login">"Click here"</a></p></label>
 
 </div>
 

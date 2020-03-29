@@ -1,28 +1,32 @@
 body {
-    background-color: cadetblue;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    background: #f0f0f0;
 }
+
 
 #mainContainer {
-    display: inline-block;
-    float: bottom;
-    font-family: Calibri;
-    font-size: 20px;
-    background-color: darkgrey;
-    padding: 1%;
-    border: 1px solid gray;
-    margin: 5% 5% 5% 5%;
-    text-align: center;
-    width: 30%;
+    font-family: "Roboto",sans-serif;
+    font-size: 16px;
+    line-height: 1.42857143;
+    color: #555;
+    background: #f0f0f0;
+    padding: 30px 30px 20px 30px;
+    margin-bottom: 30px;
 }
 
-/*label{*/
-/*    display: inline-block;*/
-/*    float: left;*/
-/*    clear: left;*/
-/*    width: 250px;*/
-/*    text-align: right;*/
-/*}*/
-/*input {*/
-/*    display: inline-block;*/
-/*    float: left;*/
-/*}*/
+
+label{
+    display: inline-block;
+    float: left;
+    clear: left;
+    width: 300px;
+    text-align: right;
+    /*background-color: aquamarine;*/
+}
+input {
+    display: inline-block;
+    float: right;
+}
