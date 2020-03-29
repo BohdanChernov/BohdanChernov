@@ -28,6 +28,7 @@ public class RegistrationServlet extends HttpServlet {
         String email = req.getParameter("email");
         String password = req.getParameter("password");
 
+        System.out.println("Сервлет дупост из RegistrationServlet выполнен!");
 
         DAO DAO = new DAO();
 
