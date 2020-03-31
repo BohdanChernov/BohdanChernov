@@ -2,10 +2,13 @@ package servlets;
 
 import at.favre.lib.crypto.bcrypt.BCrypt;
 import models.Member;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Component;
 import projectModels.CRUD;
 import projectModels.HibernateDAO;
+import projectModels.UserDAOJdbcTemplImpl;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -17,13 +20,14 @@ import java.io.IOException;
 
 @WebServlet("/registration")
 public class RegistrationServlet extends HttpServlet {
+    @Autowired
     CRUD crud;
 
     @Override
     public void init() throws ServletException {
         ApplicationContext context = new ClassPathXmlApplicationContext("config.xml");
         System.out.println("Contex is succesfully deployed!");
-        crud = (CRUD) context.getBean("userDao");
+        crud = context.getBean(UserDAOJdbcTemplImpl.class);
     }
 
     @Override
@@ -41,10 +45,12 @@ public class RegistrationServlet extends HttpServlet {
 
         String hashPass = BCrypt.withDefaults().hashToString(BCrypt.MIN_COST, password.toCharArray());
 
-        System.out.println("Сервлет дупост из RegistrationServlet выполнен!");
+        int i = 0;
 
 //        CRUD crud = new HibernateDAO();
         crud.save(new Member(name, lastName, email, hashPass));
+
+        System.out.println("Сервлет дупост из RegistrationServlet выполнен!");
 
         resp.sendRedirect("/login");
     }

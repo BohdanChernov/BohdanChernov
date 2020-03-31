@@ -4,6 +4,7 @@ import models.Member;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
 import java.io.FileInputStream;
@@ -39,7 +40,6 @@ public class UserDAOJdbcTemplImpl implements UserCRUD {
             String dbPassword = properties.getProperty("db.password");
             String driverClassName = properties.getProperty("db.DriverClassName");
 
-            int i =0;
 
             dataSource.setUsername(dbUsername);
             dataSource.setPassword(dbPassword);
