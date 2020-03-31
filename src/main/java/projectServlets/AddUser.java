@@ -65,7 +65,7 @@ public class AddUser extends HttpServlet {
             preparedStatement.setString(4, passCrypt);
 
             preparedStatement.execute();
-            
+
             System.out.println("Сервлет дупост из AddUser выполнен!");
         } catch (SQLException throwables) {
             throwables.printStackTrace();

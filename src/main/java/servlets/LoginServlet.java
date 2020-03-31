@@ -1,6 +1,8 @@
 package servlets;
 
 import models.Member;
+import projectModels.CRUD;
+import projectModels.HibernateDAO;
 import repositories.DAO;
 
 import javax.servlet.RequestDispatcher;
@@ -9,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
@@ -24,10 +27,12 @@ public class LoginServlet extends HttpServlet {
         String email = req.getParameter("email");
         String password = req.getParameter("password");
 
-        DAO DAO = new DAO();
-        ArrayList<Member> list = DAO.getData();
 
-        if (DAO.isExist(email, password)) {
+        CRUD crud = new HibernateDAO();
+        List<Member> list = crud.findAll();
+
+
+        if (crud.isExist(email, password)) {
             System.out.println("YOU ARE LOGGED");
             HttpSession session = req.getSession();
             session.setAttribute("user", email);

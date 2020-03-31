@@ -25,6 +25,7 @@
     <label><p>To FIRST PAGE click <a href="/firstPage">here</a></p></label>
     <label><p>To LIST OF MEMBERS click <a href="/listOfMem">here</a></label>
     <label></p><p>To ADD USER click <a href="/addUser">here</a></p></label>
+    <label></p><p>To check member cars <a href="/showMemberCars">here</a></p></label>
 
 </div>
 

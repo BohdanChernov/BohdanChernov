@@ -1,7 +1,11 @@
 package servlets;
 
+import at.favre.lib.crypto.bcrypt.BCrypt;
 import models.Member;
-import repositories.DAO;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import projectModels.CRUD;
+import projectModels.HibernateDAO;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,10 +14,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
 
 @WebServlet("/registration")
 public class RegistrationServlet extends HttpServlet {
+    CRUD crud;
+
+    @Override
+    public void init() throws ServletException {
+        ApplicationContext context = new ClassPathXmlApplicationContext("config.xml");
+        System.out.println("Contex is succesfully deployed!");
+        crud = (CRUD) context.getBean("userDao");
+    }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -28,13 +39,13 @@ public class RegistrationServlet extends HttpServlet {
         String email = req.getParameter("email");
         String password = req.getParameter("password");
 
+        String hashPass = BCrypt.withDefaults().hashToString(BCrypt.MIN_COST, password.toCharArray());
+
         System.out.println("Сервлет дупост из RegistrationServlet выполнен!");
 
-        DAO DAO = new DAO();
+//        CRUD crud = new HibernateDAO();
+        crud.save(new Member(name, lastName, email, hashPass));
 
-        String passCrypt = DAO.getCrypt(password);
-        DAO.addMember(name, lastName, email, passCrypt);
         resp.sendRedirect("/login");
-
     }
 }
